@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 
-from geospaas.noaa_ndbc.utils import crawl
+from noaa_ndbc.utils import crawl
 
 class Command(BaseCommand):
     args = '<url> <select>'
