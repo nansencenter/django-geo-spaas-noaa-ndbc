@@ -23,8 +23,21 @@ class Command(BaseCommand):
             url = http://dods.ndbc.noaa.gov/thredds/catalog/data/stdmet/catalog.xml
             select = 0y2w3h2012.nc
         '''
+    def add_arguments(self, parser):
+        parser.add_argument('url', nargs='*', type=str)
+        parser.add_argument('--year',
+                            action='store',
+                            default='',
+                            help='''Year of coverage''')
+        parser.add_argument('--filename',
+                            action='store',
+                            default='',
+                            help='''Filename of a specific dataset''')
 
     def handle(self, *args, **options):
-        added = crawl(*args, **options)
+        if not len(options['url'])==1:
+            raise IOError('Please provide a url to the data')
+        url = options.pop('url')[0]
+        added = crawl(url, **options)
         self.stdout.write(
             'Successfully added metadata of %s stdmet buouy datasets' %added)
