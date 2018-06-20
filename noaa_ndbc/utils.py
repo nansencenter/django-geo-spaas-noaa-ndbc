@@ -98,6 +98,3 @@ def get_data(utc, uri):
 
     return out
 
-
-
-    
