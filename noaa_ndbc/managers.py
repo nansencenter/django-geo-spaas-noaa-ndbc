@@ -90,6 +90,7 @@ class StandardMeteorologicalBuoyManager(models.Manager):
         t1 = datetime.datetime(1970,1,1) + datetime.timedelta(seconds=int(nc_dataset.variables['time'][-1]))
 
         ds = Dataset(
+                entry_id = 'NOAA_NDBC_%s'%nc_dataset.station,
                 entry_title=entrytitle,
                 ISO_topic_category = iso_category,
                 data_center = dc,
