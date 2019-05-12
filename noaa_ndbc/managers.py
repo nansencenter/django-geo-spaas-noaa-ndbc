@@ -19,7 +19,7 @@ import pythesint as pti
 from django.db import models
 from django.contrib.gis.geos import GEOSGeometry
 
-from geospaas.utils import validate_uri, nansat_filename
+from geospaas.utils.utils import validate_uri, nansat_filename
 
 from geospaas.vocabularies.models import Platform
 from geospaas.vocabularies.models import Instrument
